@@ -14,15 +14,14 @@ int main(void) {
                    0, 0, /* Window height and width are irrelevant since we are using fullscreen  */
                    SDL_WINDOW_FULLSCREEN_DESKTOP);
   CHECKERROR(window == NULL, SDL_GetError());
-
-  // Get window size
   SDL_GetWindowSize(window, &windows_width, &windows_height);
 
   SDL_Surface * window_surface = SDL_GetWindowSurface(window);
   CHECKERROR(window_surface == NULL, SDL_GetError());
 
   Raytracing raytracing = Raytracing();
-  raytracing.start_simulation();
+  // raytracing.start_simulation();
+  // Makes no sense to do this method because when to finish the simulation should be decided by the front aka this file
   SDL_Event current_event;
   while (raytracing.get_status() != END_SIMULATION) {
     while (SDL_PollEvent(&current_event)) {

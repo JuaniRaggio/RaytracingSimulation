@@ -5,7 +5,7 @@
 
 // This file has the functions and methods in charge of administrating the tecnical side of the simulation
 
-typedef enum {END_SIMULATION = 0, RUNNING} simulation_status;
+typedef enum {END_SIMULATION = 0, RUNNING_SIMULATION} simulation_status;
 
 class Raytracing {
   private:
