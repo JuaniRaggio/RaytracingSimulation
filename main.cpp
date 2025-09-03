@@ -4,6 +4,12 @@
 #include "include/raytracing_simulation.hpp"
 #include "include/error_management.hpp"
 
+int windows_width;
+int windows_height;
+size_t rows;
+size_t columns;
+double cell_size;
+
 static void show_simulation_updates(Raytracing raytracing, SDL_Surface * surface);
 
 int main(void) {
@@ -20,14 +26,14 @@ int main(void) {
   CHECKERROR(window_surface == NULL, SDL_GetError());
 
   Raytracing raytracing = Raytracing();
-  // raytracing.start_simulation();
-  // Makes no sense to do this method because when to finish the simulation should be decided by the front aka this file
+  raytracing.start_simulation();
+  
   SDL_Event current_event;
   while (raytracing.get_status() != END_SIMULATION) {
     while (SDL_PollEvent(&current_event)) {
       raytracing.manage_event(current_event);
     }
-    show_simulation_updates(raytracing, window_surface);
+    raytracing.render_frame(window_surface);
     SDL_UpdateWindowSurface(window);
   }
 

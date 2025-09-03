@@ -1,3 +1,3 @@
 #!/bin/bash
 
-clang++ main.cpp -o raytracing `sdl2-config --cflags --libs`
+clang++ main.cpp src/raytracing_simulation.cpp -o raytracing `sdl2-config --cflags --libs`
