@@ -1,7 +1,0 @@
-#+title:Raytracing
-
-* File organization
-** main
-** error_management
-** formats
-** raytracing_simulation
